@@ -384,8 +384,6 @@ public class AutomationExcerciseStepdefinations {
     }
 
 
-
-
     @And("Verify text SUBSCRIPTION")
     public void verifyTextSUBSCRIPTION() {
         Assertions.assertTrue(automationExcercise.footerSubscriptionTextElementi.isDisplayed());
@@ -626,6 +624,21 @@ public class AutomationExcerciseStepdefinations {
     @And("Click Cart button in header")
     public void clickCartButtonInHeader() {
         automationExcercise.headerCartButtonElementi.click();
+
+    }
+
+    @And("Click Signup-Login button")
+    public void clickSignupLoginButton() {
+        automationExcercise.signupLoginButtonElementi.click();
+
+    }
+
+
+    @And("Fill email, password and click Login button")
+    public void fillEmailPasswordAndClickLoginButton() {
+        automationExcercise.logintoyouraccountEmailBoxElementi.sendKeys("niko@niko.com");
+        automationExcercise.logintoyouraccountPasswordBoxElementi.sendKeys("1234");
+        automationExcercise.logintoyouraccountLoginButtonElementi.click();
 
     }
 }
