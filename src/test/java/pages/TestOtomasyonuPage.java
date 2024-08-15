@@ -61,8 +61,6 @@ public class TestOtomasyonuPage {
     @FindBy(xpath = "//*[@*='product-title text-center']")
     public WebElement sepettekiUrunIsimElementi;
 
-    @FindBy (xpath = "//*[text()='0 Products Found']")
-    public WebElement negatif0produtfoundTestElementi;
 
 
 

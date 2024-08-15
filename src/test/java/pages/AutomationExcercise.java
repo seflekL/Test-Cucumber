@@ -196,6 +196,96 @@ public class AutomationExcercise {
     @FindBy (xpath = "//*[@id='subscribe']")
     public WebElement footersubscribeButton;
 
+    @FindBy (xpath = "//*[@class='fa fa-shopping-cart']")
+    public WebElement headerCartButtonElementi;
+
+    @FindBy (xpath = "(//*[@class='btn btn-default add-to-cart'])[1]")
+    public WebElement categoryfirstProductAddtoCartButtonElementi;
+
+    @FindBy (xpath = "//*[text()='Continue Shopping']")
+    public WebElement categoryContinueShoppingButtonElementi;
+
+    @FindBy (xpath = "(//*[@class='single-products'])[2]")
+    public  WebElement categorySeccondProductLinkWebElementi;
+
+    @FindBy (xpath = "(//*[@class='fa fa-shopping-cart'])[4]")
+    public WebElement categorySeccondProductAddCartButtonElementi;
+
+    @FindBy (xpath = "//*[text()='View Cart']")
+    public WebElement categorySeccondProductAddtoCartLink;
+
+    @FindBy (xpath = "//*[@class='cart_description']")
+    public List<WebElement> categoryproductListcartList;
+
+   @FindBy (id = "product-1")
+    public List<WebElement> cartProduct1List;
+
+   @FindBy (xpath = "(//*[@class='cart_price'])[1]")
+    public WebElement cartProduct1PriceElementi;
+
+    @FindBy (xpath = "(//*[@class='cart_price'])[2]")
+    public WebElement cartProduct2PriceElementi;
+
+    @FindBy (xpath = "(//*[@class='cart_quantity'])[1]")
+    public WebElement cartProduct1QuantityElementi;
+
+    @FindBy (xpath = "(//*[@class='cart_quantity'])[2]")
+    public WebElement cartProduct2QuantityElementi;
+
+    @FindBy (xpath = "(//*[@class='cart_total_price'])[1]")
+    public  WebElement getCartProduct1TotalPriceElementi;
+
+    @FindBy (xpath = "(//*[@class='cart_total_price'])[2]")
+    public  WebElement getCartProduct2TotalPriceElementi;
+
+    @FindBy (id = "quantity")
+    public WebElement  cartProductQuatityBoxElementi;
+
+    @FindBy (xpath = "//*[@class='btn btn-default cart']")
+    public WebElement addtocartButton;
+
+    @FindBy (xpath = "//*[text()='View Cart']")
+    public WebElement viewcartButtonElementi;
+    @FindBy (className = "disabled")
+    public WebElement cartQuantityBoxElementi;
+    @FindBy (xpath = "//*[text()='Proceed To Checkout']")
+    public WebElement proceedcheckoutButtonElementi;
+    @FindBy (xpath = "//*[text()='Register / Login']")
+    public WebElement registerLoginButtonElementi;
+    @FindBy (xpath = "//*[text()='Continue']")
+    public WebElement accountcreatedContinueButtonElementi;
+    @FindBy (xpath = "//*[text()='Your delivery address']")
+    public WebElement yourdeliveryaddressTExtElementi;
+    @FindBy (className = "form-control")
+    public WebElement  checkoutpageBodyBoxElementi;
+    @FindBy (xpath = "//*[@name='name_on_card']")
+    public WebElement paymentnameOntheCardBox;
+    @FindBy (xpath = "//*[@name='card_number']")
+    public WebElement paymentCardNumberBoxElementi;
+    @FindBy (xpath = "//*[@name='cvc']")
+    public WebElement paymenCVCboxElementi;
+    @FindBy (xpath = "//*[@name='expiry_month']")
+    public WebElement paymentExpirationBoxElementi;
+    @FindBy (xpath = "//*[@name='expiry_year']")
+    public WebElement paymentYearCardBoxElementi;
+    @FindBy (id = "submit")
+    public WebElement paymentPayandConfirmButtonElementi;
+
+    @FindBy (xpath = "//*[@class='cart_description']")
+    public WebElement checkoutItemDescriptionBoxElementi;
+
+    @FindBy (xpath = "//*[text()='Place Order']")
+    public WebElement checkoutPlaceOrderButtonElementi;
+
+    @FindBy (xpath = "//*[text()='Congratulations! Your order has been confirmed!']")
+    public WebElement paymentdonepageCongratulationsorderconfirmedTextButton;
+
+    @FindBy (xpath = "//*[text()='Continue']")
+    public WebElement paymentDonneContinueButtonElementi;
+
+
+
+
 
 
 

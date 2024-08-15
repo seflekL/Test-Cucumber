@@ -5,10 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -353,7 +350,7 @@ public class AutomationExcerciseStepdefinations {
 
     @And("Verify all the products related to search are visible")
     public void verifyAllTheProductsRelatedToSearchAreVisible() {
-        Assertions.assertTrue(automationExcercise.categoryproductList.size()>=1);
+        Assertions.assertTrue(automationExcercise.categoryproductList.size() >= 1);
         System.out.println(automationExcercise.categoryproductList.size());
     }
 
@@ -371,7 +368,6 @@ public class AutomationExcerciseStepdefinations {
     }
 
 
-
     @And("Enter email address in input and click arrow button")
     public void enterEmailAddressInInputAndClickArrowButton() {
         automationExcercise.footersubscribeEmailBox.sendKeys(faker.internet().emailAddress());
@@ -387,10 +383,251 @@ public class AutomationExcerciseStepdefinations {
         Assertions.assertTrue(automationExcercise.footerSubscriptionTextElementi.isDisplayed());
     }
 
+
+
+
     @And("Verify text SUBSCRIPTION")
     public void verifyTextSUBSCRIPTION() {
         Assertions.assertTrue(automationExcercise.footerSubscriptionTextElementi.isDisplayed());
 
+    }
+
+    @And("Click Products button")
+    public void clickProductsButton() {
+        automationExcercise.productLinkElementi.click();
+
+    }
+
+
+    @And("Click Continue Shopping button")
+    public void clickContinueShoppingButton() {
+        automationExcercise.categoryContinueShoppingButtonElementi.click();
+
+    }
+
+    @And("Verify both products are added to Cart")
+    public void verifyBothProductsAreAddedToCart() {
+        System.out.println(automationExcercise.categoryproductListcartList.size());
+        Assertions.assertTrue(automationExcercise.categoryproductListcartList.size() == 2);
+    }
+
+    @And("Verify their prices, quantity and total price")
+    public void verifyTheirPricesQuantityAndTotalPrice() {
+
+        String expectedfirstProductPrice = "Rs. 500";
+        String expectedSeccondProductPrice = "Rs. 400";
+        String expectedfirstProductQuantity = "1";
+        String expectedSeccondProductQuantity = "1";
+        String expectedfirstProductTotatlprice = "Rs. 500";
+        String expectedSeccondProductTotalPRice = "Rs. 400";
+
+        Assertions.assertEquals(expectedfirstProductPrice, automationExcercise.cartProduct1PriceElementi.getText());
+        Assertions.assertEquals(expectedSeccondProductPrice, automationExcercise.cartProduct2PriceElementi.getText());
+        Assertions.assertEquals(automationExcercise.cartProduct1QuantityElementi.getText(), expectedfirstProductQuantity);
+        Assertions.assertEquals(automationExcercise.cartProduct2QuantityElementi.getText(), expectedSeccondProductQuantity);
+        Assertions.assertEquals(automationExcercise.getCartProduct1TotalPriceElementi.getText(), expectedfirstProductTotatlprice);
+        Assertions.assertEquals(automationExcercise.getCartProduct2TotalPriceElementi.getText(), expectedSeccondProductTotalPRice);
+    }
+
+    @And("Hover over first product and click Add to cart")
+    public void hoverOverFirstProductAndClickAddToCart() {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.categoryFirstProductLink);
+        Driver.getDriver().findElement(By.xpath("(//*[@class='btn btn-default add-to-cart'])[1]")).click();
+
+    }
+
+    @And("Hover over second product and click Add to cart")
+    public void hoverOverSecondProductAndClickAddToCart() {
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.categorySeccondProductLinkWebElementi);
+        automationExcercise.categorySeccondProductAddCartButtonElementi.click();
+    }
+
+
+    @And("Click View Product for any product on home page")
+    public void clickViewProductForAnyProductOnHomePage() {
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.categoryFirstProductLink);
+        Driver.getDriver().findElement(By.xpath("(//*[@class='btn btn-default add-to-cart'])[1]"));
+        automationExcercise.categoryFirstProductLink.click();
+
+    }
+
+    @And("Verify product detail is opened")
+    public void verifyProductDetailIsOpened() {
+        Assertions.assertTrue(automationExcercise.categoryFirstProductBrandElementi.isDisplayed());
+        Assertions.assertTrue(automationExcercise.categoryFirstProductPriceElementi.isDisplayed());
+        Assertions.assertTrue(automationExcercise.categoryFirstProductavaibilityStock.isDisplayed());
+    }
+
+
+    @And("Click Add to cart button")
+    public void clickAddToCartButton() {
+        automationExcercise.addtocartButton.click();
+
+    }
+
+    @And("Click View Cart button")
+    public void clickViewCartButton() {
+        automationExcercise.viewcartButtonElementi.click();
+
+    }
+
+    @And("Verify that product is displayed in cart page with exact quantity")
+    public void verifyThatProductIsDisplayedInCartPageWithExactQuantity() {
+        Assertions.assertEquals(automationExcercise.cartQuantityBoxElementi.getText(), "4");
+
+    }
+
+    @And("Increase quantity to {string}")
+    public void increaseQuantityTo(String sayi) {
+        automationExcercise.cartProductQuatityBoxElementi.sendKeys(Keys.DELETE);
+        ReusableMethods.bekle(5);
+        automationExcercise.cartProductQuatityBoxElementi.sendKeys(sayi);
+    }
+
+
+    @And("Add products to cart")
+    public void addProductsToCart() {
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.categoryFirstProductLink);
+        ReusableMethods.bekle(1);
+        automationExcercise.categoryFirstProductLink.click();
+
+    }
+
+    @And("Click Cart button")
+    public void clickCartButton() {
+        automationExcercise.addtocartButton.click();
+        automationExcercise.viewcartButtonElementi.click();
+    }
+
+    @And("Verify that cart page is displayed")
+    public void verifyThatCartPageIsDisplayed() {
+        String expectedUrl = "https://automationexercise.com/view_cart";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        Assertions.assertEquals(expectedUrl, actualUrl);
+
+    }
+
+    @And("Click Proceed To Checkout")
+    public void clickProceedToCheckout() {
+        automationExcercise.proceedcheckoutButtonElementi.click();
+
+    }
+
+    @And("Click RegisterLogin button")
+    public void clickRegisterLoginButton() {
+        automationExcercise.registerLoginButtonElementi.click();
+
+    }
+
+    @And("Fill all details in Signup and create account")
+    public void fillAllDetailsInSignupAndCreateAccount() {
+        automationExcercise.signupNameBoxElementi.sendKeys(faker.backToTheFuture().character());
+        automationExcercise.signupEmailboxElementi.sendKeys(faker.internet().emailAddress());
+        automationExcercise.signupButtonElementi.click();
+        automationExcercise.mrBoxbuttonElementi.click();
+        automationExcercise.passwordBoxElementi.sendKeys("1234");
+        Select selectDay = new Select(automationExcercise.dayDDMElementi);
+        selectDay.selectByValue("1");
+        Select selectMonth = new Select(automationExcercise.monthDDMElementi);
+        selectMonth.selectByValue("8");
+        Select selectYear = new Select(automationExcercise.yearsDDMElementi);
+        selectYear.selectByValue("1900");
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.receiveSpecialButtonElementi);
+        ReusableMethods.bekle(1);
+        automationExcercise.receiveSpecialButtonElementi.click();
+        automationExcercise.adressfirstnameBoxinElementi.sendKeys(faker.funnyName().name());
+        automationExcercise.adresslastnameBoxinElementi.sendKeys(faker.funnyName().name());
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.adresscompanyBoxinElementi);
+        ReusableMethods.bekle(1);
+        automationExcercise.adresscompanyBoxinElementi.sendKeys(faker.backToTheFuture().character());
+        automationExcercise.adressAdressElementi.sendKeys("hugogogo oleye oley");
+        Select countryboxelementi = new Select(automationExcercise.adresscontryDDMElementi);
+        countryboxelementi.selectByValue("Canada");
+        automationExcercise.addresstateAdressBoxElementi.sendKeys("OT");
+        automationExcercise.adresscityBoxElementi.sendKeys(faker.hitchhikersGuideToTheGalaxy().quote());
+        automationExcercise.addressZipboxElementi.sendKeys("1234");
+        automationExcercise.adressMobileElementi2.sendKeys("1234567885");
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.createbuttonElementi);
+        ReusableMethods.bekle(1);
+        automationExcercise.createbuttonElementi.click();
+
+    }
+
+    @And("Verify ACCOUNT CREATED! and click Continue button")
+    public void verifyACCOUNTCREATEDAndClickContinueButton() {
+        Assertions.assertTrue(automationExcercise.accountCreatedTextWebElementi.isDisplayed());
+        automationExcercise.accountcreatedContinueButtonElementi.click();
+        ReusableMethods.bekle(5);
+
+    }
+
+    @And("Verify  Logged in as username at top")
+    public void verifyLoggedInAsUsernameAtTop() {
+        Assertions.assertTrue(automationExcercise.loggedinASElementi.isDisplayed());
+
+    }
+
+    @And("Click Proceed To Checkout button")
+    public void clickProceedToCheckoutButton() {
+        automationExcercise.proceedcheckoutButtonElementi.click();
+
+    }
+
+    @And("Verify Address Details and Review Your Order")
+    public void verifyAddressDetailsAndReviewYourOrder() {
+        Assertions.assertTrue(automationExcercise.yourdeliveryaddressTExtElementi.isDisplayed());
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.checkoutItemDescriptionBoxElementi);
+        ReusableMethods.bekle(1);
+        Assertions.assertTrue(automationExcercise.checkoutItemDescriptionBoxElementi.isDisplayed());
+    }
+
+    @And("Enter description in comment text area and click Place Order")
+    public void enterDescriptionInCommentTextAreaAndClickPlaceOrder() {
+        automationExcercise.checkoutpageBodyBoxElementi.sendKeys(faker.hitchhikersGuideToTheGalaxy().marvinQuote());
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.checkoutPlaceOrderButtonElementi);
+        ReusableMethods.bekle(1);
+        automationExcercise.checkoutPlaceOrderButtonElementi.click();
+    }
+
+    @And("Enter payment details: Name on Card, Card Number, CVC, Expiration date")
+    public void enterPaymentDetailsNameOnCardCardNumberCVCExpirationDate() {
+        automationExcercise.paymentnameOntheCardBox.sendKeys(faker.funnyName().name());
+        automationExcercise.paymentCardNumberBoxElementi.sendKeys("1234578984564");
+        automationExcercise.paymenCVCboxElementi.sendKeys("123");
+        automationExcercise.paymentExpirationBoxElementi.sendKeys("03");
+        automationExcercise.paymentYearCardBoxElementi.sendKeys("2090");
+    }
+
+    @And("Click Pay and Confirm Order button")
+    public void clickPayAndConfirmOrderButton() {
+        automationExcercise.paymentPayandConfirmButtonElementi.click();
+
+    }
+
+    @And("Verify success message Your order has been placed successfully!")
+    public void verifySuccessMessageYourOrderHasBeenPlacedSuccessfully() {
+        Assertions.assertTrue(automationExcercise.paymentdonepageCongratulationsorderconfirmedTextButton.isDisplayed());
+        automationExcercise.paymentDonneContinueButtonElementi.click();
+    }
+
+    @And("Verify ACCOUNT DELETED! and click Continue button")
+    public void verifyACCOUNTDELETEDAndClickContinueButton() {
+        Assertions.assertTrue(automationExcercise.deleteAccountVerificationElementi.isDisplayed());
+        automationExcercise.paymentDonneContinueButtonElementi.click();
+
+        Driver.quitDriver();
+    }
+
+    @And("Click Cart button in header")
+    public void clickCartButtonInHeader() {
+        automationExcercise.headerCartButtonElementi.click();
 
     }
 }
+
+
