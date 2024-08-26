@@ -641,6 +641,61 @@ public class AutomationExcerciseStepdefinations {
         automationExcercise.logintoyouraccountLoginButtonElementi.click();
 
     }
+
+    @And("Verify that product is removed from the cart")
+    public void verifyThatProductIsRemovedFromTheCart() {
+
+        Assertions.assertTrue(automationExcercise.cartScreenEmpyCartScreenText.isDisplayed());
+
+    }
+
+
+
+    @And("Click X button corresponding to particular product")
+    public void clickXButtonCorrespondingToParticularProduct() {
+        automationExcercise.cartScreenRemoveButonElmenti.click();
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("Verify that categories are visible on left side bar")
+    public void verify_that_categories_are_visible_on_left_side_bar() {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});",automationExcercise.leftsidebarCategoriesTextElementi);
+        Assertions.assertTrue(automationExcercise.leftsidebarCategoriesTextElementi.isDisplayed());
+        ReusableMethods.bekle(1);
+
+    }
+    @Then("Click on Women category")
+    public void click_on_women_category() {
+        automationExcercise.leftsidebarWomenButonElementi.click();
+
+
+    }
+    @Then("Click on any category link under Women category, for example: Dress")
+    public void click_on_any_category_link_under_women_category_for_example_dress() {
+        ReusableMethods.bekle(1);
+
+        automationExcercise.leftsidebarWomenTopProductsButtonu.click();
+
+    }
+    @Then("Verify that category page is displayed and confirm text {string}")
+    public void verify_that_category_page_is_displayed_and_confirm_text(String string) {
+        Assertions.assertTrue(automationExcercise.womenTopProductsTextElementi.isDisplayed());
+
+    }
+    @Then("On left side bar, click on any sub-category link of {string} category")
+    public void on_left_side_bar_click_on_any_sub_category_link_of_category(String string) {
+        automationExcercise.leftsidebarsidebarMenButtonElementi.click();
+        ReusableMethods.bekle(2);
+        automationExcercise.leftsidebarmenJeanButtonelementi.click();
+    }
+    @Then("Verify that user is navigated to that category page")
+    public void verify_that_user_is_navigated_to_that_category_page() {
+
+        Assertions.assertTrue(automationExcercise.menJeansProductstTitleElementi.isDisplayed());
+
+    }
+
 }
 
 

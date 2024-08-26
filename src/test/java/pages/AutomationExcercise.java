@@ -283,6 +283,36 @@ public class AutomationExcercise {
     @FindBy (xpath = "//*[text()='Continue']")
     public WebElement paymentDonneContinueButtonElementi;
 
+    @FindBy (xpath = "//*[@class='cart_quantity_delete']")
+    public WebElement cartScreenRemoveButonElmenti;
+
+    @FindBy (id = "empty_cart")
+    public WebElement cartScreenEmpyCartScreenText;
+
+    @FindBy (xpath = "//*[text()='Category']")
+    public WebElement leftsidebarCategoriesTextElementi;
+
+    @FindBy (xpath = "(//*[@class='fa fa-plus'])[1]")
+    public WebElement leftsidebarPLUSsignButonELementi;
+
+    @FindBy(xpath = "//a[normalize-space()='Women']")
+    public WebElement leftsidebarWomenButonElementi;
+
+    @FindBy (xpath = "//a[normalize-space()='Tops']")
+    public WebElement leftsidebarWomenTopProductsButtonu;
+
+    @FindBy (xpath = "//a[@class='google-anno']")
+    public WebElement womenTopProductsTextElementi;
+
+    @FindBy (xpath = "//a[normalize-space()='Men']")
+    public WebElement leftsidebarsidebarMenButtonElementi;
+
+    @FindBy (xpath = "//a[normalize-space()='Jeans']")
+    public WebElement leftsidebarmenJeanButtonelementi;
+
+    @FindBy (xpath = "//*[text()='Men - Jeans Products']")
+    public WebElement  menJeansProductstTitleElementi;
+
 
 
 
