@@ -696,6 +696,95 @@ public class AutomationExcerciseStepdefinations {
 
     }
 
+
+    @And("Verify that Brands are visible on left side bar")
+    public void verifyThatBrandsAreVisibleOnLeftSideBar() {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.leftsidebarCategoriesTextElementi);
+        Assertions.assertTrue(automationExcercise.leftsidebarCategoriesTextElementi.isDisplayed());
+        ReusableMethods.bekle(1);
+        Assertions.assertTrue(automationExcercise.leftsidebarCategoriesTextElementi.isDisplayed());
+    }
+
+    @And("Click on any brand name")
+    public void clickOnAnyBrandName() {
+        automationExcercise.leftsidebarWomenButonElementi.click();
+        ReusableMethods.bekle(1);
+        automationExcercise.leftsidebarWomenTopProductsButtonu.click();
+    }
+
+    @And("Verify that user is navigated to brand page and brand products are displayed")
+    public void verifyThatUserIsNavigatedToBrandPageAndBrandProductsAreDisplayed() {
+        automationExcercise.womenTopProductsTextElementi.isDisplayed();
+
+    }
+
+    @And("On left side bar, click on any other brand link")
+    public void onLeftSideBarClickOnAnyOtherBrandLink() {
+        automationExcercise.leftsidebarsidebarMenButtonElementi.click();
+        automationExcercise.leftsidebarmenJeanButtonelementi.click();
+        //    }
+
+    }
+
+    @And("Verify that user is navigated to that brand page and can see products")
+    public void verifyThatUserIsNavigatedToThatBrandPageAndCanSeeProducts() {
+        Assertions.assertTrue(automationExcercise.menJeansProductstTitleElementi.isDisplayed());
+    }
+
+    @And("Add those products to cart")
+    public void addThoseProductsToCart() {
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.addtocart1Elementi);
+        ReusableMethods.bekle(2);
+
+        automationExcercise.addtocart1Elementi.click();
+        automationExcercise.continueShoppingButtonElmenti.click();
+        automationExcercise.addtocart2Elementi.click();
+        automationExcercise.continueShoppingButtonElmenti.click();
+        automationExcercise.addtocart3Elementi.click();
+
+    }
+
+
+
+
+
+    @And("Again, go to Cart page")
+    public void againGoToCartPage() {
+        automationExcercise.headerCartButtonElementi.click();
+
+    }
+
+    @And("Verify that those products are visible in cart after login as well")
+    public void verifyThatThoseProductsAreVisibleInCartAfterLoginAsWell() {
+        Assertions.assertTrue(automationExcercise.cartList.get(0).isDisplayed());
+
+    }
+
+    @And("Click Cart button and verify that products are visible in cart")
+    public void clickCartButtonAndVerifyThatProductsAreVisibleInCart() {
+        automationExcercise.viewcartButtonElementi.click();
+        Assertions.assertTrue(automationExcercise.cartList.get(0).isDisplayed());
+    }
+
+    @And("Click Signup-Login button and submit login details")
+    public void clickSignupLoginButtonAndSubmitLoginDetails() {
+        automationExcercise.signupLoginButtonElementi.click();
+        automationExcercise.logintoyouraccountEmailBoxElementi.sendKeys("niko@niko.com");
+        automationExcercise.logintoyouraccountPasswordBoxElementi.sendKeys("1234");
+        automationExcercise.logintoyouraccountLoginButtonElementi.click();
+    }
+
+    @And("Enter product name mean jean in search input and click search button")
+    public void enterProductNameMeanJeanInSearchInputAndClickSearchButton() {
+        automationExcercise.productSearchBoxelementi.sendKeys("Jeans");
+        automationExcercise.productSearchBoxButtonElementi.click();
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("arguments[0].scrollIntoView({block: 'center'});", automationExcercise.leftsidebarCategoriesTextElementi);
+        Assertions.assertTrue(automationExcercise.leftsidebarCategoriesTextElementi.isDisplayed());
+        ReusableMethods.bekle(1);
+        Assertions.assertTrue(automationExcercise.leftsidebarCategoriesTextElementi.isDisplayed());
+    }
 }
 
 
