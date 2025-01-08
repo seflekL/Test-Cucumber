@@ -1,4 +1,4 @@
-# 🥒 Team144 Cucumber Projesi
+# 🥒 Cucumber Projesi
 <br><br>
 Bu proje, **Cucumber**, **JUnit**, ve **Selenium** kullanarak test otomasyonunu gerçekleştirmek için oluşturulmuştur.  
 Proje, BDD (Behavior Driven Development) yaklaşımını kullanarak test senaryolarını iş birliğine uygun ve anlaşılabilir bir formatta yazmayı amaçlar.  
